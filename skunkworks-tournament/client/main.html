@@ -7,11 +7,17 @@
 
   {{> hello}}
   {{> info}}
+  {{> loginButtons}}
 </body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
+  {{#if currentUser}}
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Type to add new tasks" />
+    </form>
+  {{/if}}
 </template>
 
 <template name="info">
