@@ -1,0 +1,84 @@
+<template name="create_tournament">
+  {{#if currentUser }}
+    <div class="row">
+      <form id="create" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="title" type="text" class="validate">
+            <label for="create">Tournament Name</label>
+          </div>
+          <div class="input-field col s6">
+            <select name="category" class="browser-default">
+              <option value="" disabled selected>Choose your sport</option>
+              <option value="soccer">Soccer</option>
+              <option value="basketball">Basketball</option>
+              <option value="lacrosse">Lacrosse</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <select class="browser-default">
+              <option value="type" disabled selected>Choose your tournament type</option>
+              <option value="bracket">Bracket</option>
+              <option value="group_play">Group play</option>
+              <option value="group_play_and_bracket">Group play and bracket</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <select name="gender" class="browser-default">
+              <option value="" disabled selected>Which gender?</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <select name="age-group" class="browser-default">
+              <option value="" disabled selected>Which age group?</option>
+              <option value="8">U8</option>
+              <option value="9">U9</option>
+              <option value="10">U10</option>
+              <option value="11">U11</option>
+              <option value="12">U12</option>
+              <option value="13">U13</option>
+              <option value="14">U14</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <input name="size" type="text" class="validate">
+            <label for="teams">Number of teams</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="group" type="text" class="validate">
+            <label for="group">Teams per group</label>
+          </div>
+          <!-- <div class="row">
+            <div class="input-field col s12">
+              <input id="location" type="text" class="validate">
+              <label for="location">Location</label>
+            </div>
+            <a class="waves-effect waves-light btn">Add</a>
+          </div> -->
+        </div>
+        <!-- <form action="#">
+         <div class="file-field input-field">
+           <div class="btn">
+             <span>File</span>
+             <input type="file">
+           </div>
+           <div class="file-path-wrapper">
+             <input class="file-path validate" type="text" placeholder="Upload a tournament logo or banner">
+           </div>
+         </div>
+       </form> -->
+      <p>Start Date</p>
+      <input name="start_date" type="date" class="datepicker">
+      <p>End Date</p>
+      <input name="end_date" type="date" class="datepicker">
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" class="waves-effect waves-light btn">
+        </div>
+      </div>
+      </form>
+    </div>
+  {{/if}}
+</template>
