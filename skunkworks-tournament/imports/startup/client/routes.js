@@ -7,6 +7,6 @@ import '../../ui/pages/tournaments.js';
 
 FlowRouter.route('/', {
   action() {
-    BlazeLayout.render("App_body", {content: "tournaments"});
+    BlazeLayout.render("Appbody", {content: "tournaments"});
   },
 })
