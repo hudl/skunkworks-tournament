@@ -1,0 +1,16 @@
+<template name="alltournaments">
+
+        <div class="container">
+            <div class="tournament-names"><h2>All Tournaments</h2></div>
+            <ul>
+                {{#each tnames}}
+                {{> tname}}
+                {{/each}}
+            </ul>
+        </div>
+
+</template>
+
+<template name="tname">
+    <li>{{text}}</li>
+</template>

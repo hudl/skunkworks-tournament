@@ -2,6 +2,7 @@ import './create_tournament.html';
 
 Template.create_tournament.events({
   'submit #create'(){
+    console.log('here!!');
     $.fn.serializeObject = function()
     {
       var o = {};
@@ -19,16 +20,22 @@ Template.create_tournament.events({
       return o;
     };
     const formData = $('#create').serializeObject();
-    const groupPlay = {
+    const tournament = {
       type: "round_robin",
       title: formData.title,
       category: formData.category,
       status: 2,
       teams: true,
-      size: formData.size,
+      size: parseInt(formData.size, 10),
       score_entry: false,
       format: 1,
-      groups: formData.size,
+      groups: parseInt(formData.size, 10),
     };
+    var result = Meteor.call('createTournament', tournament, function(err,response) {
+            if(err) {
+                return;
+            }
+            return response.content;
+        });
   },
 });
