@@ -1,8 +1,8 @@
 import './create_tournament.html';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 Template.create_tournament.events({
   'submit #create'(){
-    console.log('here!!');
     $.fn.serializeObject = function()
     {
       var o = {};
@@ -37,5 +37,6 @@ Template.create_tournament.events({
             }
             return response.content;
         });
+    FlowRouter.go('/home');
   },
 });
