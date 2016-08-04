@@ -1,3 +1,3 @@
 import { Mongo } from 'meteor/mongo';
 
-Tournaments = new Mongo.Collection('tournaments');
+export const Tournaments = new Mongo.Collection('tournaments');

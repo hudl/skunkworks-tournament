@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 import '../startup/server';
-
+import { Tournaments } from './tournaments.js';
 
 Meteor.methods({
   'createTournament'({ tournament }) {
@@ -16,8 +16,9 @@ Meteor.methods({
     this.unblock();
     var request = HTTP.post('https://bracketcloud.com/api/1.0/tournaments?api_key=459103727ac4ee5fe8144ab4f1e0ec95fae8063b', {data: {type: "bracket"}})
     if (request.statusCode == 200) {
+        Tournaments.insert(request.content);
         return request;
     }
-//    Tournaments.insert(newTournament);
+
   }
 });
