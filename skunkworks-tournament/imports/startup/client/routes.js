@@ -28,6 +28,13 @@ FlowRouter.route('/create_tournament', {
   },
 });
 
+FlowRouter.route('/schedule_match', {
+  action() {
+    BlazeLayout.render("Appbody", {content: "create_tournament"});
+  },
+});
+
+
 FlowRouter.route('/tournaments', {
   name: 'viewtournaments',
   action() {

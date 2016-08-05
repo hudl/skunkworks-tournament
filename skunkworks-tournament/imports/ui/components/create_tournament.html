@@ -23,7 +23,7 @@
               <option value="group_play_and_bracket">Group play and bracket</option>
             </select>
           </div>
-          <div class="input-field col s6">
+          <!-- <div class="input-field col s6">
             <select name="gender" class="browser-default">
               <option value="" disabled selected>Which gender?</option>
               <option value="male">Male</option>
@@ -41,7 +41,7 @@
               <option value="13">U13</option>
               <option value="14">U14</option>
             </select>
-          </div>
+          </div> -->
           <div class="input-field col s6">
             <input name="size" type="text" class="validate">
             <label for="teams">Number of teams</label>
@@ -50,13 +50,33 @@
             <input id="group" type="text" class="validate">
             <label for="group">Teams per group</label>
           </div>
-          <!-- <div class="row">
+          <p>Tournament Start Date</p>
+          <input name="start_date" type="date" class="datepicker">
+          <p>Tournament End Date</p>
+          <input name="end_date" type="date" class="datepicker">
+          <h1> Add locations </h1>
+          <div class="row">
             <div class="input-field col s12">
-              <input id="location" type="text" class="validate">
-              <label for="location">Location</label>
+              <input id="address" name="location_address" type="text" class="validate">
+              <label for="location">Location Address</label>
             </div>
-            <a class="waves-effect waves-light btn">Add</a>
-          </div> -->
+            Location Start Time
+            <input id="start" type="time" name="start_time">
+            Location End Time
+            <input id="end" type="time" name='end_time'>
+            <div class="input-field col s6">
+              <input id="fields" name="field_limit" type="text" class="validate">
+              <label for="location">Number of fields</label>
+            </div>
+            <a id="add_location" class="waves-effect waves-light btn">Add</a>
+          </div>
+          {{#if locations}}
+            {{#each locations}}
+              <p> Address: {{address}} </p>
+              <p> # of fields: {{fields}} </p>
+              <p> Time: {{start_time}} - {{end_time}}</p>
+            {{/each}}
+          {{/if}}
         </div>
         <!-- <form action="#">
          <div class="file-field input-field">
@@ -69,10 +89,6 @@
            </div>
          </div>
        </form> -->
-      <p>Start Date</p>
-      <input name="start_date" type="date" class="datepicker">
-      <p>End Date</p>
-      <input name="end_date" type="date" class="datepicker">
       <div class="row">
         <div class="input-field col s12">
           <input type="submit" class="waves-effect waves-light btn">
