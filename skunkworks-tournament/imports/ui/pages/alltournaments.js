@@ -33,13 +33,7 @@ Template.alltournaments.onRendered(
                 return;
             }
             else {
-                var tournaments = [];
-
-                response.forEach(function(entry) {
-                    tournaments.push(entry.title);
-                    Session.set(entry._id, entry);
-                });
-                Session.set('tournaments', tournaments);
+                Session.set('tournaments', response);
             }
         });
       });

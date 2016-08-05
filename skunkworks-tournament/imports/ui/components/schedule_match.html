@@ -1,2 +1,27 @@
 <template name="schedule_match">
-</template> 
+  <p> Choose the tournament you want to schedule. </p>
+  {{#each tournaments}}
+    <a href="?{{this._id}}">{{this.title}}</a>
+  {{/each}}
+  <div class="input-field col s6">
+    <select class="browser-default">
+      <option value="type" disabled selected>Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </div>
+  <div class="input-field col s6">
+    <select class="browser-default">
+      <option value="type" disabled selected>Age Group</option>
+      <option value="15">U15</option>
+      <option value="16">U16</option>
+      <option value="17">U17</option>
+      <option value="18">U18</option>
+    </select>
+  </div>
+  {{#each tournaments}}
+    {{#each groups}}
+      <p> kdlas </p> 
+    {{/each}}
+  {{/each}}
+</template>

@@ -1,16 +1,19 @@
 <template name="alltournaments">
-
-        <div class="container">
-            <div class="tournament-names"><h2>All Tournaments</h2></div>
-            <div class="collection">
-                {{#each tournaments}}
-                <div class="collection-item"><a href="/tournaments/kagHu2NEyesKRJGs2">{{this}}</a></div>
-                {{/each}}
-            </div>
-        </div>
-
-</template>
-
-<template name="tname">
-    <li>{{text}}</li>
+  <table>
+    <thead>
+     <tr>
+         <th data-field="id">Tournament</th>
+     </tr>
+    </thead>
+    <tbody>
+      {{#each tournaments}}
+          <tr>
+            <td>{{this.title}}</td>
+            <a href="/schedule_match/{{this._id}}">Schedule Games</a>
+            <a href="#"> Tournament Viewer </a>
+            <p> 80% games registered [~~~~~~~~~~--] </p>
+          </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>

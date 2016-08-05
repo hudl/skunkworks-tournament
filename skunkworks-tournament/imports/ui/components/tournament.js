@@ -9,7 +9,6 @@ var new_grouping = [];
 Template.tournament.helpers({
 
         groupplay: function() {
-            console.log(Session.get('CddSh9N6o3eFEmQmm'));
             var tournament = Session.get('CddSh9N6o3eFEmQmm').participants;
             console.log(tournament);
             new_grouping = _
@@ -22,7 +21,6 @@ Template.tournament.helpers({
                     id: _.pluck(value, 'tid')
                 }
             }).value();
-            console.log(new_grouping);
             return new_grouping;
             },
         name: function() {

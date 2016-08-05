@@ -6,6 +6,7 @@ import '../../ui/components/create_tournament.js';
 import '../../ui/pages/alltournaments.js';
 import '../../ui/components/home.js';
 import '../../ui/components/tournament.js';
+import '../../ui/components/schedule_match.js';
 
 FlowRouter.route('/', {
   name: 'index',
@@ -29,8 +30,16 @@ FlowRouter.route('/create_tournament', {
 });
 
 FlowRouter.route('/schedule_match', {
+  name: 'schedule_match',
   action() {
-    BlazeLayout.render("Appbody", {content: "create_tournament"});
+    BlazeLayout.render("Appbody", {content: "schedule_match"});
+  },
+});
+
+FlowRouter.route('/schedule_match/:tid', {
+  name: 'schedule_match',
+  action: function(params, queryParams) {
+    BlazeLayout.render("Appbody", {content: "schedule_match"});
   },
 });
 
