@@ -1,15 +1,16 @@
 <template name="Appbody">
   <head>
     <title>skunkworks-tournament</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,300,100' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
+          <span><img height="65px" src="/images/icon.png"></span>
           <a href="#" class="brand-logo">Tourney</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li> {{> loginButtons}} </li>
-            <li><a href="/schedule_match">Schedule Matches</a></li>
             <li><a class="view-tournaments" href="/tournaments">View Tournaments</a></li>
             {{#if currentUser }}
               <a href="/create_tournament" class="create-tournament waves-effect waves-light btn">Create tournament</a>

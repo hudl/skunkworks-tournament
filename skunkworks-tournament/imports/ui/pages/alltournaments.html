@@ -1,5 +1,5 @@
 <template name="alltournaments">
-  <table>
+  <table id="tournament-list">
     <thead>
      <tr>
          <th data-field="id">Tournament</th>
@@ -9,9 +9,11 @@
       {{#each tournaments}}
           <tr>
             <td><a href="/tournaments/kagHu2NEyesKRJGs2">{{this.title}}</a></td>
-            <a href="/schedule_match/{{this._id}}">Schedule Games</a>
-            <a href="#"> Tournament Viewer </a>
-            <p> 80% games registered [~~~~~~~~~~--] </p>
+            <a href="/schedule_match/{{this._id}}" class="waves-effect waves-light btn">Schedule games</a>
+            <a href="#" id="tournament-viewer" class="waves-effect waves-light btn">Tournament Viewer</a>
+            <div class="progress">
+                <div class="determinate" style="width: 80%"></div>
+            </div>
           </tr>
       {{/each}}
     </tbody>

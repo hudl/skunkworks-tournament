@@ -1,8 +1,11 @@
 <template name="create_tournament">
   {{#if currentUser }}
-    <div class="row">
+    <div id="create-t-form" class="row">
       <form id="create" class="col s12">
         <div class="row">
+          <div class="prompt">
+            Create a tournament:
+          </div>
           <div class="input-field col s12">
             <input name="title" type="text" class="validate">
             <label for="create">Tournament Name</label>
@@ -54,7 +57,7 @@
           <input name="start_date" type="date" class="datepicker">
           <p>Tournament End Date</p>
           <input name="end_date" type="date" class="datepicker">
-          <h1> Add locations </h1>
+          <div class="prompt"> Add locations:</div>
           <div class="row">
             <div class="input-field col s12">
               <input id="address" name="location_address" type="text" class="validate">
@@ -73,7 +76,7 @@
           {{#if locations}}
             {{#each locations}}
               <p> Address: {{address}} </p>
-              <p> # of fields: {{fields}} </p>
+              <p> Total fields: {{fields}} </p>
               <p> Time: {{start_time}} - {{end_time}}</p>
             {{/each}}
           {{/if}}

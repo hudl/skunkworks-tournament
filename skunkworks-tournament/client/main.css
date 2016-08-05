@@ -1,0 +1,25 @@
+nav {
+  background-color: #FFC107 !important;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.brand-logo {
+  font-weight: 300;
+}
+#tournament-viewer {
+  background-color: #03A9F4;
+  margin: 1rem;
+}
+#tournament-list{
+  margin: 3rem;
+  width: 90%;
+}
+#create-t-form {
+  margin-top: 3rem;
+  width: 75%;
+}
+.prompt {
+  font-size: 30pt;
+  font-weight: 400;
+}
