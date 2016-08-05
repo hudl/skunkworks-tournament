@@ -21,6 +21,7 @@ Template.tournament.helpers({
                 }
             }).value();
             console.log(new_grouping);
+            return new_grouping;
             },
         name: function() {
 
