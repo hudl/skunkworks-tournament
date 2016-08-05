@@ -4,9 +4,6 @@ import '../startup/server';
 import { Tournaments, Locations, Records} from './tournaments.js';
 var names2 = ['Olivia', 'Billy', 'Chad', 'Bobby', "Samantha", 'Lilly', "Ben", 'Chris', "Stephen", "John", "Luke", "Lauren", "Garrett", "Michael"];
 if (Meteor.isServer) {
-//    Meteor.publish('alltournaments', function tournamentsPublication() {
-//        return Tournaments.find().fetch();
-//    })
 Meteor.methods({
   'createTournament': function(object) {
     Tournaments.remove({});

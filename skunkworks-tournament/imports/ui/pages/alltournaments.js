@@ -1,7 +1,7 @@
 import './alltournaments.html';
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session'
-import { Tournaments } from '../../api/tournaments.js';
+import { Tournaments, Records } from '../../api/tournaments.js';
 
 var titles = [];
 Template.alltournaments.created = function() {
@@ -19,13 +19,17 @@ Template.alltournaments.helpers({
         names.forEach(function(entry) {
 
         });
-      }
+      },
+    gamesplayed: function() {
+        var gamesplayed = 0;
+        var records = Records.find({tournament: 71557}).fetch();
+        records.forEach(function(entry) {
+            gamesplayed = gamesplayed + parseInt(entry.wins, 10);
+        });
+        return gamesplayed
+    }
   });
 
-Template.alltournaments.events = {
-    "click .update-record": function() {
-    }
-}
 
 Template.alltournaments.onRendered(
       function (template) {
