@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 import '../startup/server';
 import { Tournaments, Locations, Records} from './tournaments.js';
-var names2 = ['Olivia', 'Billy', 'Chad', 'Bobby', "Samantha", 'Lilly', "Ben", 'Chris', "Stephen", "John", "Luke", "Lauren", "Garrett", "Michael"];
+var names2 = ['Vardar', 'Michigan Wolves', 'Chicago Fire', 'Sockers FC', "Ohio Premier", 'Kansas Rush Academy', "St.Louis Scott Gallagher", "Chicago Magic", "Nebraksa FC", "Ohio FC", "Columbus Crew", "Carmel", "Waza FC", "Troy Elite"];
 if (Meteor.isServer) {
 Meteor.methods({
   'createTournament': function(object) {

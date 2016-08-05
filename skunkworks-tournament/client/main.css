@@ -23,3 +23,15 @@ body {
   font-size: 30pt;
   font-weight: 400;
 }
+.enclose {
+  padding-top: 2rem;
+  width: 90%;
+  padding-left: 3rem;
+}
+
+#tournament-name {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  font-size: 20pt;
+  color: black;
+}

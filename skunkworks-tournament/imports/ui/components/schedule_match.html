@@ -1,7 +1,7 @@
 <template name="schedule_match">
-  <p> Choose the tournament you want to schedule. </p>
+<div class="enclose">
   {{#each tournaments}}
-    <a href="?{{this._id}}">{{this.title}}</a>
+    <a id="tournament-name" href="?{{this._id}}">{{this.title}}</a>
   {{/each}}
   <p> Tournament Progress: <b>{{counter}}</b>/16 games scheduled </p>
   <div class="progress">
@@ -75,14 +75,16 @@
         {{/each}}
       {{/if}}
       {{#if adversaries}}
-        {{#each adversaries}}
-          <p> {{name}} </p>
-        {{/each}}
-        <p> Choose a day </p>
+        <div class="teams">
+          {{#each adversaries}}
+            <p> {{name}} </p>
+          {{/each}}
+        </div>
+        <p> <b> Choose a day </b> </p>
         <input type="date" class="datepicker">
-        <p> Choose a start time</p>
+        <p> <b> Choose a start time </b> </p>
         <input name="start_date" type="date" class="datepicker">
-        <p> Choose a location </p>
+        <p> <b> Choose a location </b> </p>
         <div class="input-field col s6">
           <select class="browser-default">
             {{#each locations}}
@@ -94,4 +96,5 @@
       {{/if}}
     {{/if}}
   {{/if}}
+</div>
 </template>
