@@ -48,12 +48,22 @@ Meteor.methods({
   },
 
   'getRecords'(participants) {
+          var final_return = [];
+          console.log(participants);
           participants.forEach(function(entry) {
+              var part = [];
               entry.participants.forEach(function(participant) {
                 var records = Records.find({name: participant, tournament: entry.id[0]}).fetch();
-                console.log(records);
+                part.push(JSON.stringify(records));
               });
+                var new_stuff = {group: entry.group, participants: part};
+                final_return.push(new_stuff);
             });
+            return final_return;
+  },
+
+  'updateRecord'(name, tournament, win, losses) {
+         Record.update({'name': name, 'tournament': tournament}, {'wins': wins, 'losses': losses});
   }
 });
 
@@ -64,7 +74,6 @@ function setupRecords(participants) {
         var wins = 0;
         var losses = 0;
         var records = {'name': name, 'tournament': tournament, 'wins': wins, 'losses': losses};
-
         Records.insert(records);
 
     });

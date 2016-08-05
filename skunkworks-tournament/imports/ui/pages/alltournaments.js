@@ -23,7 +23,7 @@ Template.alltournaments.helpers({
   });
 
 Template.alltournaments.events = {
-    "click .tourney": function() {
+    "click .update-record": function() {
     }
 }
 
@@ -37,6 +37,7 @@ Template.alltournaments.onRendered(
             else {
                 var tournaments = [];
                 response.forEach(function(entry) {
+                    console.log('setting');
                     tournaments.push(entry.title);
                     Session.set(entry._id, entry);
                 });
