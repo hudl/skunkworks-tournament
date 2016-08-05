@@ -9,16 +9,16 @@ Template.alltournaments.created = function() {
 }
 
 Template.alltournaments.helpers({
-        tournaments: function() {
-            return Session.get('tournaments');
-            },
-      links: function() {
+    tournaments: function() {
+        return Session.get('tournaments');
+    },
+    links: function() {
         var names = Session.get('tournaments');
         names.forEach(function(entry) {
 
         });
       }
-      });
+  });
 
 Template.alltournaments.events = {
     "click .tourney": function() {
@@ -36,7 +36,6 @@ Template.alltournaments.onRendered(
                 var tournaments = [];
 
                 response.forEach(function(entry) {
-                    console.log(entry);
                     tournaments.push(entry.title);
                     Session.set(entry._id, entry);
                 });

@@ -22,10 +22,12 @@ Meteor.methods({
       var response = Tournaments.insert(real_tournament.data, function(err, _id){
         var add_location = object.locations.map(function(l){ l["tid"] = _id});
         Locations.insert(object.locations);
+        console.log(_id);
       });
       return request;
     }
   },
+
   'viewTournaments'() {
         var tournaments = Tournaments.find().fetch();
         return tournaments;
