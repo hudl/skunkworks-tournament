@@ -33,7 +33,19 @@ Template.tournament.helpers({
                     console.log(records[0]);
                     part.push(records[0]);
                   });
+                    part.sort(function(a, b) {
+                        if (a.wins > b.wins) {
+                            return 1;
+                        }
+                        else if (a.wins < b.wins) {
+                            return -1;
+                        }
+                        else {
+                           return 1;
+                        }
+                    });
                     var new_stuff = {group: entry.group, participants: part};
+
                     final_return.push(new_stuff);
                 });
                 console.log(final_return);
@@ -45,7 +57,12 @@ Template.tournament.helpers({
       });
 
 Template.tournament.events = {
-    "click .tourney": function() {
+    "click .update-record": function() {
+        console.log('here');
+         Meteor.call('updateRecord', "John", 71538, 2, 0);
+         Records.update({'name': "John", 'tournament': 71538}, {'name': "John", 'tournament': 71538, 'wins': 2, 'losses': 0});
+         console.log()
+
     }
 }
 
