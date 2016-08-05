@@ -7,7 +7,6 @@ import { Session } from 'meteor/session'
 var numbers = [];
 var new_grouping = [];
 Template.tournament.helpers({
-
         groupplay: function() {
             console.log('HERE');
             var tournament = Session.get('iFjWDv4wWmssg7MAQ').participants;

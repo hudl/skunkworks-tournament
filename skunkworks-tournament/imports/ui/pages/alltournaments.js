@@ -10,6 +10,8 @@ Template.alltournaments.created = function() {
 
 Template.alltournaments.helpers({
     tournaments: function() {
+        console.log("HERE");
+        console.log(Session.get('tournaments'));
         return Session.get('tournaments');
     },
     links: function() {
@@ -33,6 +35,11 @@ Template.alltournaments.onRendered(
                 return;
             }
             else {
+                var tournaments = [];
+                response.forEach(function(entry) {
+                    tournaments.push(entry.title);
+                    Session.set(entry._id, entry);
+                });
                 Session.set('tournaments', response);
             }
         });
