@@ -11,13 +11,15 @@ Template.tournament.helpers({
         groupplay: function() {
             console.log(Session.get('CddSh9N6o3eFEmQmm'));
             var tournament = Session.get('CddSh9N6o3eFEmQmm').participants;
+            console.log(tournament);
             new_grouping = _
             .chain(tournament)
             .groupBy('group_id')
             .map(function(value, key) {
                 return {
                     group: key,
-                    participants: _.pluck(value, 'teams')
+                    participants: _.pluck(value, 'name'),
+                    id: _.pluck(value, 'tid')
                 }
             }).value();
             console.log(new_grouping);

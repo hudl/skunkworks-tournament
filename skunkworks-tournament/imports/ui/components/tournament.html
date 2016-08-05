@@ -1,8 +1,9 @@
 <template name="tournament">
     {{#each groupplay}}
-    <div class="collection">This Should Be a Group</div>
-    {{#each this.participants}}
-    <div class="collection-item">This Should be a Name</div>
+    <div class="collection">Group {{group}}</div>
+    {{#each participants}}
+    <div class="collection-item" data={{id}}>{{this}}</div>
+    <div class = record>Here</div>
     {{/each}}
     {{/each}}
 </template>
