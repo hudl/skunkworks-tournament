@@ -7,18 +7,6 @@ import { Tournaments } from '../../api/tournaments.js';
 if (Meteor.isClient) {
 
   Template.Appbody.events = {
-    'click .view-tournaments' : function viewTournaments () {
-        Meteor.call('viewTournaments', function(err, response) {
-            if(err) {
-                console.log(err);
-                return;
-            }
-            else {
-                return response;
-            }
-
-        })
-      },
   };
 
 

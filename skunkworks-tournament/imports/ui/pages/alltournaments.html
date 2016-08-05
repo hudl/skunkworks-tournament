@@ -2,11 +2,11 @@
 
         <div class="container">
             <div class="tournament-names"><h2>All Tournaments</h2></div>
-            <ul>
-                {{#each tnames}}
-                {{> tname}}
+            <div class="collection">
+                {{#each tournaments}}
+                <div class="collection-item"><a href="/tournaments/kagHu2NEyesKRJGs2">{{this}}</a></div>
                 {{/each}}
-            </ul>
+            </div>
         </div>
 
 </template>
