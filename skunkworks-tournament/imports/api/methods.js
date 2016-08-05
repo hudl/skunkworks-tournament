@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 import '../startup/server';
-import { Tournaments, Locations} from './tournaments.js';
+import { Tournaments, Locations, Records} from './tournaments.js';
 var names2 = ['Olivia', 'Billy', 'Chad', 'Bobby', "Samantha", 'Lilly', "Ben", 'Chris', "Stephen", "John", "Luke", "Lauren", "Garrett", "Michael"];
 if (Meteor.isServer) {
 //    Meteor.publish('alltournaments', function tournamentsPublication() {
@@ -9,13 +9,14 @@ if (Meteor.isServer) {
 //    })
 Meteor.methods({
   'createTournament': function(object) {
-    Tournaments.remove({});
-    Locations.remove({});
+//    Tournaments.remove({});
+//    Locations.remove({});
     this.unblock();
     var request = HTTP.post('https://bracketcloud.com/api/1.0/tournaments?api_key=459103727ac4ee5fe8144ab4f1e0ec95fae8063b', {data: object.tournament});
     var participants_url = "https://bracketcloud.com/api/1.0/tournaments/" + request.data.tid.toString() + "/participants?api_key=459103727ac4ee5fe8144ab4f1e0ec95fae8063b";
     var request_participants = HTTP.post(participants_url, {data: {names: names2}});
     var tourny_url = "https://bracketcloud.com/api/1.0/tournaments/" + request.data.tid.toString() + "?api_key=459103727ac4ee5fe8144ab4f1e0ec95fae8063b";
+    setupRecords(request_participants.data);
     var real_tournament = HTTP.get(tourny_url);
     if (request.statusCode == 200) {
       // create a list of locations associated with a tournament
@@ -44,6 +45,28 @@ Meteor.methods({
   'viewTournaments'() {
         var tournaments = Tournaments.find({user_id: Meteor.user()._id}).fetch();
         return tournaments;
+  },
+
+  'getRecords'(participants) {
+          participants.forEach(function(entry) {
+              entry.participants.forEach(function(participant) {
+                var records = Records.find({name: participant, tournament: entry.id[0]}).fetch();
+                console.log(records);
+              });
+            });
   }
 });
+
+function setupRecords(participants) {
+    participants.forEach(function(entry) {
+        var name = entry.name;
+        var tournament = entry.tid;
+        var wins = 0;
+        var losses = 0;
+        var records = {'name': name, 'tournament': tournament, 'wins': wins, 'losses': losses};
+
+        Records.insert(records);
+
+    });
+}
 }
