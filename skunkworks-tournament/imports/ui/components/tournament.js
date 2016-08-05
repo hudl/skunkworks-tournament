@@ -14,7 +14,7 @@ function addRecord(participants) {
 
 Template.tournament.helpers({
         groupplay: function() {
-            var tournament = Session.get('iFjWDv4wWmssg7MAQ').participants;
+            var tournament = Session.get('moHmWqZ7nuQ7Rat92').participants;
             new_grouping = _
             .chain(tournament)
             .groupBy('group_id')
@@ -35,17 +35,16 @@ Template.tournament.helpers({
                   });
                     part.sort(function(a, b) {
                         if (a.wins > b.wins) {
-                            return 1;
-                        }
-                        else if (a.wins < b.wins) {
                             return -1;
                         }
+                        else if (a.wins < b.wins) {
+                            return 1;
+                        }
                         else {
-                           return 1;
+                           return 0;
                         }
                     });
                     var new_stuff = {group: entry.group, participants: part};
-
                     final_return.push(new_stuff);
                 });
                 console.log(final_return);
@@ -58,11 +57,7 @@ Template.tournament.helpers({
 
 Template.tournament.events = {
     "click .update-record": function() {
-        console.log('here');
-         Meteor.call('updateRecord', "John", 71538, 2, 0);
-         Records.update({'name': "John", 'tournament': 71538}, {'name': "John", 'tournament': 71538, 'wins': 2, 'losses': 0});
-         console.log()
-
+         FlowRouter.go('/tournaments/kagHu2NEyesKRJGs2/updaterecord');
     }
 }
 

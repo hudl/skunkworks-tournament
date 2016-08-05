@@ -66,7 +66,7 @@ Meteor.methods({
   },
 
   'updateRecord'(name, tournament, wins, losses) {
-         var what = Records.update({'name': name, 'tournament': tournament}, {'wins': wins, 'losses': losses});
+         var what = Records.update({'name': name, 'tournament': tournament}, { $set: {'wins': wins, 'losses': losses}});
          console.log(what);
   }
 });

@@ -7,7 +7,7 @@ import '../../ui/pages/alltournaments.js';
 import '../../ui/components/home.js';
 import '../../ui/components/tournament.js';
 import '../../ui/components/schedule_match.js';
-
+import '../../ui/components/update_record.js';
 FlowRouter.route('/', {
   name: 'index',
   action() {
@@ -55,5 +55,12 @@ FlowRouter.route('/tournaments/:contentId', {
   name: 'viewtournament',
   action() {
     BlazeLayout.render("Appbody", {content: "tournament"});
+  },
+});
+
+FlowRouter.route('/tournaments/:contentId/updateRecords', {
+  name: 'updateRecord',
+  action() {
+    BlazeLayout.render("Appbody", {content: "updaterecord"});
   },
 });

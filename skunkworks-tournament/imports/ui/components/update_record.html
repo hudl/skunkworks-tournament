@@ -1,0 +1,58 @@
+<template name="updaterecord">
+    {{#if currentUser }}
+    <div class="row">
+        <form id="create" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="title" type="text" class="validate">
+                    <label for="create">Team Name</label>
+                </div>
+
+                <!-- <div class="input-field col s6">
+                  <select name="gender" class="browser-default">
+                    <option value="" disabled selected>Which gender?</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select name="age-group" class="browser-default">
+                    <option value="" disabled selected>Which age group?</option>
+                    <option value="8">U8</option>
+                    <option value="9">U9</option>
+                    <option value="10">U10</option>
+                    <option value="11">U11</option>
+                    <option value="12">U12</option>
+                    <option value="13">U13</option>
+                    <option value="14">U14</option>
+                  </select>
+                </div> -->
+                <div class="input-field col s6">
+                    <input name="wins" type="text" class="validate">
+                    <label>wins</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="losses" id="group" type="text" class="validate">
+                    <label>Losses</label>
+                </div>
+            <!-- <form action="#">
+             <div class="file-field input-field">
+               <div class="btn">
+                 <span>File</span>
+                 <input type="file">
+               </div>
+               <div class="file-path-wrapper">
+                 <input class="file-path validate" type="text" placeholder="Upload a tournament logo or banner">
+               </div>
+             </div>
+           </form> -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="submit" class="waves-effect waves-light btn">
+                </div>
+            </div>
+                </div>
+        </form>
+    </div>
+    {{/if}}
+</template>
