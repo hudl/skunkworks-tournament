@@ -9,8 +9,6 @@ if (Meteor.isServer) {
 //    })
 Meteor.methods({
   'createTournament': function(object) {
-//    Tournaments.remove({});
-//    Locations.remove({});
     this.unblock();
     var request = HTTP.post('https://bracketcloud.com/api/1.0/tournaments?api_key=459103727ac4ee5fe8144ab4f1e0ec95fae8063b', {data: object.tournament});
     var participants_url = "https://bracketcloud.com/api/1.0/tournaments/" + request.data.tid.toString() + "/participants?api_key=459103727ac4ee5fe8144ab4f1e0ec95fae8063b";
@@ -41,6 +39,11 @@ Meteor.methods({
       });
     });
     return arr;
+  },
+  'returnGroupMatches'(tournament, groupID) {
+    tournament.matches = [];
+    // var matches = tournament.matches.filter(function(t){
+    // });
   },
   'viewTournaments'() {
         var tournaments = Tournaments.find({user_id: Meteor.user()._id}).fetch();

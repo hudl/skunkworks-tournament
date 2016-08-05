@@ -52,7 +52,7 @@ Template.create_tournament.events({
         size: parseInt(formData.size, 10),
         score_entry: false,
         format: 1,
-        groups: parseInt(formData.size, 10),
+        groups: parseInt(formData.group, 10),
       },
       locations: template.locations.get(),
     };
@@ -62,6 +62,6 @@ Template.create_tournament.events({
       }
       return response.content;
     });
-    FlowRouter.go('/home');
+    FlowRouter.go('/tournaments');
   },
 });

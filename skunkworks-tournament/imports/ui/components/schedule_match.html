@@ -3,6 +3,11 @@
   {{#each tournaments}}
     <a href="?{{this._id}}">{{this.title}}</a>
   {{/each}}
+  <p> Tournament Progress: <b>{{counter}}</b>/16 games scheduled </p>
+  <div class="progress">
+      <div class="determinate" style="width: {{percentage}}%"></div>
+  </div>
+  <br>
   <div class="input-field col s6">
     <select class="browser-default">
       <option value="type" disabled selected>Gender</option>
@@ -11,7 +16,7 @@
     </select>
   </div>
   <div class="input-field col s6">
-    <select class="browser-default">
+    <select id="age" class="browser-default">
       <option value="type" disabled selected>Age Group</option>
       <option value="15">U15</option>
       <option value="16">U16</option>
@@ -19,9 +24,74 @@
       <option value="18">U18</option>
     </select>
   </div>
-  {{#each tournaments}}
-    {{#each groups}}
-      <p> kdlas </p> 
-    {{/each}}
-  {{/each}}
+  {{#if infoSelected}}
+    <table>
+         <thead>
+           <tr>
+               <th data-field="id">Groups</th>
+               <th data-field="id">Group Members</th>
+           </tr>
+         </thead>
+         <tbody>
+           {{#each groups}}
+             {{#if this}}
+               <tr>
+                 <td>{{@index}}</td>
+                 <td>
+                   {{#each this}}
+                    {{name}} -
+                   {{/each}}
+                 </td>
+                 <td><a class="schedule" id="{{@index}}" href="?{{@index}}">Schedule Group</a></td>
+               </tr>
+             {{/if}}
+           {{/each}}
+         </tbody>
+    </table>
+    {{#if params2}}
+      <table>
+           <thead>
+             <tr>
+                 <th data-field="id">Teams</th>
+             </tr>
+           </thead>
+           <tbody>
+             {{#each teams}}
+               {{#if this}}
+                 <tr>
+                   <td>
+                     {{name}}
+                   </td>
+                   <td><a class="schedule_game" href="#" id="{{position}}">Schedule Game</a></td>
+                 </tr>
+               {{/if}}
+             {{/each}}
+           </tbody>
+      </table>
+      {{#if opponents}}
+        <h3> Which team should {{selectedTeamName}} play? </h3>
+        {{#each opponents}}
+         <a class="pick_team" id="{{position}}" href="#"> {{name}} </a> <br>
+        {{/each}}
+      {{/if}}
+      {{#if adversaries}}
+        {{#each adversaries}}
+          <p> {{name}} </p>
+        {{/each}}
+        <p> Choose a day </p>
+        <input type="date" class="datepicker">
+        <p> Choose a start time</p>
+        <input name="start_date" type="date" class="datepicker">
+        <p> Choose a location </p>
+        <div class="input-field col s6">
+          <select class="browser-default">
+            {{#each locations}}
+              <option value="group_play_and_bracket">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <a id="final" class="waves-effect waves-light btn">Schedule game</a>
+      {{/if}}
+    {{/if}}
+  {{/if}}
 </template>
